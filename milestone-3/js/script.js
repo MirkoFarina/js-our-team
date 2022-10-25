@@ -54,8 +54,8 @@ const row = document.querySelector('.row');
 
 
 for(let employee of ourTeam ){
-  let listSkills = getSkills(employee.skills);
-  let listAdjectives = getDescription(employee.adjectives);
+  let listSkills = getContentArrayForStamp(employee.skills);
+  let listAdjectives = getContentArrayForStamp(employee.adjectives);
   
   stampCard(employee.img,employee.name, employee.lastName,employee.role,listAdjectives,listSkills);
 }
@@ -64,30 +64,16 @@ for(let employee of ourTeam ){
 
 /**
  * 
- * @param {string} arrayAdjectives 
- * @returns all adjectives
+ * @param {string} array 
+ * @returns all content of array in li start to stamp
  */
-function getDescription(arrayAdjectives){
-  let allAdjectives = '';
-  for(let description of arrayAdjectives){
-    allAdjectives += `<li>${description}</li>`;
+function getContentArrayForStamp(array){
+  let allOfType = '';
+  for(let all of array){
+    allOfType += `<li>${all}</li>`;
   }
-  return allAdjectives;
+  return allOfType;
 }
-
-/**
- * 
- * @param {string} arraySkills 
- * @returns return all skills
- */
-function getSkills(arraySkills){
-  let allSkills = '';
-  for(let employeeSkills of arraySkills){
-    allSkills += `<li>${employeeSkills}</li>`;
-  }
-  return allSkills;
-}
-
 
 
 /**
