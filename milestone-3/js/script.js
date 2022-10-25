@@ -54,20 +54,39 @@ const row = document.querySelector('.row');
 
 
 for(let employee of ourTeam ){
-  let listAdjectives = '';
-  let listSkills = '';
-
-  for(let description of employee.adjectives){
-    listAdjectives += `<li>${description}</li>`;
-  }
+  let listSkills = getSkills(employee.skills);
+  let listAdjectives = getDescription(employee.adjectives);
   
-  for(let allSkills of employee.skills){
-    listSkills += `<li>${allSkills}</li>`;
-  }
   stampCard(employee.img,employee.name, employee.lastName,employee.role,listAdjectives,listSkills);
 }
 
 
+
+/**
+ * 
+ * @param {string} arrayAdjectives 
+ * @returns all adjectives
+ */
+function getDescription(arrayAdjectives){
+  let allAdjectives = '';
+  for(let description of arrayAdjectives){
+    allAdjectives += `<li>${description}</li>`;
+  }
+  return allAdjectives;
+}
+
+/**
+ * 
+ * @param {string} arraySkills 
+ * @returns return all skills
+ */
+function getSkills(arraySkills){
+  let allSkills = '';
+  for(let employeeSkills of arraySkills){
+    allSkills += `<li>${employeeSkills}</li>`;
+  }
+  return allSkills;
+}
 
 
 
